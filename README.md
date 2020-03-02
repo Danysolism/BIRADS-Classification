@@ -8,7 +8,7 @@ Currently, the only method for early detection of breast cancer that uses images
 
 This project aims to provide a high-sensitive and rapid early-stage breast cancer detection model. 
 For it, the  [BI-RADS](https://breast-cancer.ca/bi-rads/) (Breast Imaging Reporting and Data System) is used.
-This project provides a webapp that integrates the model from the paper ["High-resolution breast cancer screening with multi-view deep convolutional neural networks"](https://arxiv.org/abs/1703.07047). The implementation allows users to get the BI-RADS prediction by applying the pretrained CNN model on standard screening mammogram exam with four views.
+**This project provides a webapp that integrates the model from the paper** ["High-resolution breast cancer screening with multi-view deep convolutional neural networks"](https://arxiv.org/abs/1703.07047). The implementation allows users to get the BI-RADS prediction by applying the pretrained CNN model on standard screening mammogram exam with four views.
 
 ## Virtual Enviroment
 
