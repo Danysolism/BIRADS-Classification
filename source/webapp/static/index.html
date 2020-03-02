@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>Breast Cancer Classifier</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:700|Merriweather:300,300italic,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/jquery/jquery.fileupload.css">
+    <link rel="stylesheet" href="/static/css/screen.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <header>
+            <img src="/static/img/logo.png"/>
+            <br>
+            <h1>Breast Cancer Classifier</h1>  
+          </header>
+        </div>
+      </div>
+      <div class="container wow fadeInUp">
+        <div class="col-md-9 col-md-offset-1">
+          <div class="section-title">
+            <i class="fas fa-brain fa-3x"></i>
+            <h2>How it works</h2>
+          </div>
+          <div class="title-explanation">
+            <h3>
+              This is a breast cancer classifier, it uses Convolutional Neural Networks to analyse
+              the different views of the mammography screening. It outputs the probability of belonging to a BI-RADS class (0, 1 or 2).
+            </h3>
+          </div>
+          <div class="section-subtitle">
+            <h3>BI-RADS CLASSIFICATION</h3>      
+          </div>
+          <div>
+            <li class = "text-explanation"><b>BI-RADS 0:</b> Additional imaging evaluation and/or comparison to prior mammograms is needed. </li>
+            <li class = "text-explanation"><b>BI-RADS 1:</b> Negative. There’s no significant abnormality to report.</li>
+            <li class = "text-explanation"><b>BI-RADS 2:</b> This is also a negative mammogram result (there’s no sign of cancer), but the radiologist chooses to describe a finding known to be benign, such as benign calcifications, lymph nodes in the breast, or calcified fibroadenomas.</li>
+          </div>
+          <div class="section-subtitle">
+            <h3>Model architecture</h3>
+            <p class = "text-explanation">The model computes the output in two stages. In the first stage, a number of convolutional
+                and pooling layers is separately applied to each of the
+                views. View specific representations are concatenated to form a vector.
+                The vector is the input to the fully connected layer followed by a softmax to output the probability of belonging to each BI-RADS class.
+            </p>
+          </div>
+          <div class="painting-box">
+            <img src="/static/img/model_architecture.PNG" class="img-painting image"/>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="container wow fadeInUp">
+          <div class="col-md- col-md-offset-3">
+            <div class="section-title">
+              <i class="fa fa-atom fa-3x"></i>
+              <h2>Service flow</h2>
+            </div>
+          </div>
+          <img src="/static/img/aml.png" class="center process_desc">
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="container wow fadeInUp">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="section-title">
+              <i class="fa fa-images fa-3x"></i>
+              <h2>Example of images</h2>
+              <h3></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="reveal">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="painting-box">
+                  <img src="/static/img/L-CC.png" class="img-painting image"/>
+                  <div class="btn-box">
+                    <h3>L-CC</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="painting-box">
+                  <img src="/static/img/L-MLO.png" class="img-painting image"/>
+                  <div class="btn-box">
+                    <h3>L-MLO</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="painting-box">
+                  <img src="/static/img/R-CC.png" class="img-painting image"/>
+                  <div class="btn-box">
+                    <h3>R-CC</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="painting-box">
+                  <img src="/static/img/R-MLO.png" class="img-painting image"/>
+                  <div class="btn-box">
+                    <h3>R-MLO</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="container">
+          <div class="col-md-6 col-md-offset-3">
+              <div class="section-title">
+                  <i class="fas fa-rocket fa-3x"></i>
+                  <h2>Upload your files</h2>
+              </div>
+              <div class="form-group file">
+                <input id="fileupload" name="file" type="file" accept="image/jpeg, image/bmp, image/png" multiple="">
+              </div>  
+          </div>
+        </div>
+      </div>
+      <div id="classification-row" class="row"></div>
+    </div>
+    <script src="/static/js/jquery/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/jquery/jquery.ui.widget.js"></script>
+    <script src="/static/js/jquery/jquery.iframe-transport.js"></script>
+    <script src="/static/js/jquery/jquery.fileupload.js"></script>
+    <script src="/static/js/progressbar/progressbar.min.js"></script>
+    <script src="/static/js/scrollreveal/scrollreveal.min.js"></script>
+    <script src="/static/js/screen.js"></script>
+  </body>
+</html>
